@@ -1,24 +1,24 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+// app/layout.tsx
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
+import { ErrorBoundary } from "@/components/ErrorBoundary"
+import { ReactNode } from "react"
 
-const inter = Inter({ subsets: ["latin"] })
-
-export const metadata: Metadata = {
-  title: "AutoFlow - Business Automation Platform",
-  description: "Automate your business workflows with AI-powered integrations",
-    generator: 'v0.dev'
+export const metadata = {
+  title: "Autoflow",
+  description: "Automate your business with AI in minutes",
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body>
+        <ErrorBoundary>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            {children}
+          </ThemeProvider>
+        </ErrorBoundary>
+      </body>
     </html>
   )
 }

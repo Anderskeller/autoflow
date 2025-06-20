@@ -24,4 +24,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.ts
+next-env.d.tsnode_modules/
+.next/
+my-v0-project@0.1.0/ # uønsket build-mappe
+node_modules/
+.next/
+my-v0-project@0.1.0/
